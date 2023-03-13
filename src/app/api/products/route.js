@@ -12,3 +12,16 @@ export async function GET(request) {
     console.error(e);
   }
 }
+
+export async function DELETE(request) {
+  try {
+    const client = await clientPromise;
+    const db = client.db('skinSensei');
+
+    const del = await db.collection('products').deleteMany({ isTest: 'true' });
+
+    return new Response(JSON.stringify(del));
+  } catch (e) {
+    console.error(e);
+  }
+}

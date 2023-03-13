@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from './page.module.css';
-import clientPromise from '../../lib/mongodb';
+import { clientPromise } from '../../lib/mongodb';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -52,9 +52,9 @@ export default async function Home() {
       </div>
 
       {(await mongoDBIsConnected()) ? (
-        <p className={styles.subtitle}>You are connected to MongoDB</p>
+        <p className={styles.subtitle}>You are connected</p>
       ) : (
-        <p className={styles.subtitle}>You are NOT connected to MongoDB.</p>
+        <p className={styles.subtitle}>You are NOT connected</p>
       )}
 
       <div className={styles.center}>
