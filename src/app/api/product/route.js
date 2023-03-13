@@ -4,11 +4,12 @@ const parseParams = (params) => {
   const name = params.get('name');
   const price = params.get('price');
   const quantity = params.get('quantity');
+  const months = params.get('months');
   const routineStep = params.get('routineStep');
   const shop = params.get('shop');
   const isTest = params.get('isTest');
 
-  return { name, price, quantity, routineStep, shop, isTest };
+  return { name, price, quantity, months, routineStep, shop, isTest };
 };
 
 export async function POST(request) {
@@ -17,12 +18,22 @@ export async function POST(request) {
     const db = client.db('skinSensei');
     const { searchParams } = new URL(request.url);
 
-    const { name, price, quantity, routineStep, shop, isTest } =
+    const { name, price, quantity, months, routineStep, shop, isTest } =
       parseParams(searchParams);
 
-    const post = await db
-      .collection('products')
-      .insertOne({ name, price, quantity, routineStep, shop, isTest });
+    const priceQuantity = Math.round((price / quantity) * 100) / 100;
+    const priceMonth = Math.round((price / months) * 100) / 100;
+
+    const post = await db.collection('products').insertOne({
+      name,
+      price,
+      quantity,
+      routineStep,
+      shop,
+      priceQuantity,
+      priceMonth,
+      isTest,
+    });
 
     return new Response(JSON.stringify(post));
   } catch (e) {
