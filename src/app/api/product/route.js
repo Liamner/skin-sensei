@@ -7,9 +7,8 @@ const parseParams = (params) => {
   const months = params.get('months');
   const routineStep = params.get('routineStep');
   const shop = params.get('shop');
-  const isTest = params.get('isTest');
 
-  return { name, price, quantity, months, routineStep, shop, isTest };
+  return { name, price, quantity, months, routineStep, shop };
 };
 
 export async function POST(request) {
@@ -17,9 +16,9 @@ export async function POST(request) {
     const client = await clientPromise;
     const db = client.db('skinSensei');
     const { searchParams } = new URL(request.url);
-
-    const { name, price, quantity, months, routineStep, shop, isTest } =
+    const { name, price, quantity, months, routineStep, shop } =
       parseParams(searchParams);
+    const isTest = process.env.NODE_ENV === 'development';
 
     const priceQuantity = Math.round((price / quantity) * 100) / 100;
     const priceMonth = Math.round((price / months) * 100) / 100;

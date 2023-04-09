@@ -5,9 +5,9 @@ export async function GET(request) {
     const client = await clientPromise;
     const db = client.db('skinSensei');
 
-    const products = await db.collection('products').find({}).toArray();
+    const users = await db.collection('users').find({}).toArray();
 
-    return new Response(JSON.stringify(products));
+    return new Response(JSON.stringify(users));
   } catch (e) {
     console.error(e);
   }
@@ -18,7 +18,7 @@ export async function DELETE(request) {
     const client = await clientPromise;
     const db = client.db('skinSensei');
 
-    const del = await db.collection('products').deleteMany({ isTest: true });
+    const del = await db.collection('users').deleteMany({ isTest: true });
 
     return new Response(JSON.stringify(del));
   } catch (e) {
