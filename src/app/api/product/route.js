@@ -14,11 +14,10 @@ const parseParams = (params) => {
 export async function POST(request) {
   try {
     const client = await clientPromise;
-    const db = client.db('skinSensei');
+    const db = client.db(process.env.DATABASE);
     const { searchParams } = new URL(request.url);
     const { name, price, quantity, months, routineStep, shop } =
       parseParams(searchParams);
-    const isTest = process.env.NODE_ENV === 'development';
 
     const priceQuantity = Math.round((price / quantity) * 100) / 100;
     const priceMonth = Math.round((price / months) * 100) / 100;
@@ -31,7 +30,6 @@ export async function POST(request) {
       shop,
       priceQuantity,
       priceMonth,
-      isTest,
     });
 
     return new Response(JSON.stringify(post));
