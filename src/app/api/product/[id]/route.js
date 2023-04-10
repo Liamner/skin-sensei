@@ -7,15 +7,14 @@ const parseParams = (params) => {
   const months = params.get('months');
   const routineStep = params.get('routineStep');
   const shop = params.get('shop');
-  const isTest = params.get('isTest');
 
-  return { name, price, quantity, months, routineStep, shop, isTest };
+  return { name, price, quantity, months, routineStep, shop };
 };
 
 export async function GET(request, { params }) {
   try {
     const client = await clientPromise;
-    const db = client.db('skinSensei');
+    const db = client.db(process.env.DATABASE);
     const id = params.id;
 
     const products = await db
@@ -32,11 +31,11 @@ export async function GET(request, { params }) {
 export async function PUT(request, { params }) {
   try {
     const client = await clientPromise;
-    const db = client.db('skinSensei');
+    const db = client.db(process.env.DATABASE);
     const id = params.id;
     const { searchParams } = new URL(request.url);
 
-    const { name, price, quantity, months, routineStep, shop, isTest } =
+    const { name, price, quantity, months, routineStep, shop } =
       parseParams(searchParams);
 
     const priceQuantity = Math.round((price / quantity) * 100) / 100;
@@ -52,7 +51,6 @@ export async function PUT(request, { params }) {
         shop,
         priceQuantity,
         priceMonth,
-        isTest,
       }
     );
 
@@ -65,7 +63,7 @@ export async function PUT(request, { params }) {
 export async function DELETE(request, { params }) {
   try {
     const client = await clientPromise;
-    const db = client.db('skinSensei');
+    const db = client.db(process.env.DATABASE);
     const id = params.id;
 
     const del = await db

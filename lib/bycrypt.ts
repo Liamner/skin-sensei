@@ -7,7 +7,7 @@ export function hashText(unHashText) {
 }
 
 export function compareHash(unHashText, hashText) {
-  return compare(unHashText, hashText).then((result) => {
+  return compare(unHashText, hashText).then(function (result) {
     return result;
   });
 }
