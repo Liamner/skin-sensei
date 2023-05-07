@@ -1,5 +1,5 @@
-import { clientPromise, ObjectId } from '../../../../../../lib/mongodb';
-import { hashText, compareHash } from '../../../../../../lib/bycrypt';
+import { clientPromise, ObjectId } from 'lib/mongodb';
+import { hashText, compareHash } from 'lib/bycrypt';
 
 const parseParams = (params) => {
   const lastPwd = params.get('lastPwd');

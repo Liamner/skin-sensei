@@ -1,5 +1,5 @@
-import { clientPromise, ObjectId } from '../../../../lib/mongodb';
-import { compareHash } from '../../../../lib/bycrypt';
+import { clientPromise } from 'lib/mongodb';
+import { compareHash } from 'lib/bycrypt';
 
 const getPwd = async (db, username) => {
   return await db
