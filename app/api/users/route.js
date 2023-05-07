@@ -1,6 +1,6 @@
 import { clientPromise } from 'lib/mongodb';
 
-export async function GET(request) {
+export async function GET() {
   try {
     const client = await clientPromise;
     const db = client.db(process.env.DATABASE);
@@ -13,7 +13,7 @@ export async function GET(request) {
   }
 }
 
-export async function DELETE(request) {
+export async function DELETE() {
   try {
     const client = await clientPromise;
     const db = client.db(process.env.DATABASE);
