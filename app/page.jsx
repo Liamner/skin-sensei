@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from './page.module.css';
-import { clientPromise } from '../../lib/mongodb';
+import { clientPromise } from 'lib/mongodb';
 
 const inter = Inter({ subsets: ['latin'] });
 

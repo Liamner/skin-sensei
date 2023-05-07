@@ -1,4 +1,4 @@
-import { clientPromise } from '../../../../lib/mongodb';
+import { clientPromise } from 'lib/mongodb';
 
 const parseParams = (params) => {
   const name = params.get('name');

@@ -4,7 +4,7 @@ module.exports = {
     'next/core-web-vitals',
     'plugin:prettier/recommended',
   ],
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: ['react', 'prettier'],
   rules: {
     'prettier/prettier': ['error'],
   },
