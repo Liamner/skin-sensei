@@ -3,7 +3,7 @@
     "short_name": "Skin Sensei",
     "theme_color": "#2196f3",
     "background_color": "#2196f3",
-    "display": "minimal-ui",
+    "display": "standalone",
     "id": "/",
     "scope": "/",
     "start_url": "/",
