@@ -15,7 +15,7 @@ export async function GET(request, { params }) {
 
     const user = await db
       .collection('users')
-      .find({ _id: ObjectId(id) })
+      .find({ _id: new ObjectId(id) })
       .project({ username: 1, name: 1 })
       .toArray();
 
@@ -37,7 +37,7 @@ export async function PUT(request, { params }) {
     const user = await db
       .collection('users')
       .updateOne(
-        { _id: ObjectId(id) },
+        { _id: new ObjectId(id) },
         { $set: { username: username, name: name } }
       );
 

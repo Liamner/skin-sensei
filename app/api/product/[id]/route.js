@@ -19,7 +19,7 @@ export async function GET(request, { params }) {
 
     const products = await db
       .collection('products')
-      .find({ _id: ObjectId(id) })
+      .find({ _id: new ObjectId(id) })
       .toArray();
 
     return new Response(JSON.stringify(products));
@@ -42,7 +42,7 @@ export async function PUT(request, { params }) {
     const priceMonth = Math.round((price / months) * 100) / 100;
 
     const del = await db.collection('products').replaceOne(
-      { _id: ObjectId(id) },
+      { _id: new ObjectId(id) },
       {
         name,
         price,
@@ -68,7 +68,7 @@ export async function DELETE(request, { params }) {
 
     const del = await db
       .collection('products')
-      .deleteOne({ _id: ObjectId(id) });
+      .deleteOne({ _id: new ObjectId(id) });
 
     return new Response(JSON.stringify(del));
   } catch (e) {
