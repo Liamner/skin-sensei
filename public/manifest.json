@@ -1,0 +1,17 @@
+{
+    "name": "Skin Sensei",
+    "short_name": "Skin Sensei",
+    "theme_color": "#2196f3",
+    "background_color": "#2196f3",
+    "display": "standalone",
+    "id": "/",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "/favicon.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        }
+    ]
+}
