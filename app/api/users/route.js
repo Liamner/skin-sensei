@@ -5,7 +5,11 @@ export async function GET() {
     const client = await clientPromise;
     const db = client.db(process.env.DATABASE);
 
-    const users = await db.collection('users').find({}).toArray();
+    const users = await db
+      .collection('users')
+      .find({})
+      .project({ username: 1, name: 1 })
+      .toArray();
 
     return new Response(JSON.stringify(users));
   } catch (e) {

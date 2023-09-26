@@ -12,7 +12,9 @@
         "lint": "yarn eslint && yarn prettier"
     },
     "dependencies": {
+        "@nextui-org/react": "^2.1.13",
         "bcryptjs": "^2.4.3",
+        "framer-motion": "^10.16.4",
         "mongodb": "6.1.0",
         "next": "13.5.2",
         "react": "18.2.0",
@@ -21,10 +23,17 @@
     "devDependencies": {
         "@commitlint/cli": "^17.4.4",
         "@commitlint/config-conventional": "^17.4.4",
+        "@types/node": "^20.7.0",
+        "@types/react": "^18.2.23",
+        "@types/react-dom": "^18.2.7",
+        "autoprefixer": "^10.4.16",
         "eslint": "8.49.0",
         "eslint-config-next": "13.5.2",
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-prettier": "^5.0.0",
-        "prettier": "^3.0.3"
+        "postcss": "^8.4.30",
+        "prettier": "^3.0.3",
+        "tailwindcss": "^3.3.3",
+        "typescript": "^5.2.2"
     }
 }

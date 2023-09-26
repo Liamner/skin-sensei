@@ -16,20 +16,6 @@ const getPwd = async (db, id) => {
     .toArray();
 };
 
-export async function GET(request, { params }) {
-  try {
-    const client = await clientPromise;
-    const db = client.db(process.env.DATABASE);
-    const id = params.id;
-
-    const user = await getPwd(db, id);
-
-    return new Response(JSON.stringify(user));
-  } catch (e) {
-    console.error(e);
-  }
-}
-
 export async function PUT(request, { params }) {
   try {
     const client = await clientPromise;
